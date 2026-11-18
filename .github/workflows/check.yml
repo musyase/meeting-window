@@ -2,6 +2,7 @@ name: Check
 
 on:
   push:
+    branches: [main]
   pull_request:
 
 permissions:
@@ -22,8 +23,8 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test
-      - run: flutter build web --base-href /meeting-window/
-      - run: flutter build apk --debug
+      - run: flutter build web --base-href /meeting-window/ --no-web-resources-cdn
+      - run: test -f build/web/canvaskit/canvaskit.js
       - run: python3 scripts/check_copy.py README.md
       - uses: actions/configure-pages@v5
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
@@ -31,6 +32,18 @@ jobs:
         if: github.event_name == 'push' && github.ref == 'refs/heads/main'
         with:
           path: build/web
+
+  android:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: subosito/flutter-action@v2
+        with:
+          flutter-version: '3.50.0'
+          channel: stable
+          cache: true
+      - run: flutter pub get
+      - run: flutter build apk --debug
 
   deploy:
     if: github.event_name == 'push' && github.ref == 'refs/heads/main'
