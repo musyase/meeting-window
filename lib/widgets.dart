@@ -2,9 +2,9 @@ import 'package:material_ui/material_ui.dart';
 
 import 'window_finder.dart';
 
-const ink = Color(0xFF1D2A26);
-const muted = Color(0xFF52645E);
-const green = Color(0xFF17665B);
+const ink = Color(0xFF1D2A3A);
+const muted = Color(0xFF526179);
+const blue = Color(0xFF31548B);
 
 class PlannerContent extends StatelessWidget {
   const PlannerContent({
@@ -37,41 +37,31 @@ class PlannerContent extends StatelessWidget {
     final wide = MediaQuery.sizeOf(context).width >= 860;
     return SafeArea(
       child: SingleChildScrollView(
-        padding: const EdgeInsets.fromLTRB(20, 22, 20, 60),
+        padding: const EdgeInsets.fromLTRB(20, 18, 20, 60),
         child: Center(
           child: ConstrainedBox(
             constraints: const BoxConstraints(maxWidth: 1120),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                const Text(
-                  'PLAN ACROSS TIME ZONES',
-                  style: TextStyle(
-                    fontSize: 12,
-                    letterSpacing: 1.7,
-                    fontWeight: FontWeight.w800,
-                    color: green,
-                  ),
-                ),
-                const SizedBox(height: 12),
                 Text(
-                  'Find a meeting window.',
+                  'Meeting windows',
                   style: TextStyle(
-                    fontSize: wide ? 48 : 34,
-                    height: 1.08,
-                    letterSpacing: -1.4,
+                    fontSize: wide ? 34 : 29,
+                    height: 1.15,
+                    letterSpacing: -.7,
                     fontWeight: FontWeight.w700,
                     color: ink,
                   ),
                 ),
-                const SizedBox(height: 12),
+                const SizedBox(height: 5),
                 const Text(
-                  'Choose a date and each person’s local working hours. Clock changes are included. No account or calendar access is needed.',
-                  style: TextStyle(fontSize: 16, height: 1.45, color: muted),
+                  'Find overlap in local working hours, including clock changes.',
+                  style: TextStyle(fontSize: 14, height: 1.4, color: muted),
                 ),
-                const SizedBox(height: 26),
+                const SizedBox(height: 20),
                 _controls(),
-                const SizedBox(height: 26),
+                const SizedBox(height: 22),
                 if (wide)
                   Row(
                     crossAxisAlignment: CrossAxisAlignment.start,
@@ -141,9 +131,9 @@ class PlannerContent extends StatelessWidget {
                 label: Text('$length min'),
                 selected: length == minutes,
                 onSelected: (_) => onChangeLength(length),
-                selectedColor: const Color(0xFFD5E9E2),
+                selectedColor: const Color(0xFFDCE6F5),
                 labelStyle: TextStyle(
-                  color: length == minutes ? const Color(0xFF0B423A) : muted,
+                  color: length == minutes ? const Color(0xFF203E6A) : muted,
                 ),
               ),
           ],
@@ -201,7 +191,7 @@ class PlannerContent extends StatelessWidget {
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(17),
-        border: Border.all(color: const Color(0xFFD9E1DA)),
+        border: Border.all(color: const Color(0xFFD8DFE8)),
       ),
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
@@ -213,7 +203,7 @@ class PlannerContent extends StatelessWidget {
                 height: 34,
                 alignment: Alignment.center,
                 decoration: BoxDecoration(
-                  color: const Color(0xFFE6EFE9),
+                  color: const Color(0xFFE9EEF6),
                   borderRadius: BorderRadius.circular(9),
                 ),
                 child: Text(
@@ -221,7 +211,7 @@ class PlannerContent extends StatelessWidget {
                   style: const TextStyle(
                     fontSize: 12,
                     fontWeight: FontWeight.w800,
-                    color: green,
+                    color: blue,
                   ),
                 ),
               ),
@@ -344,13 +334,13 @@ class PlannerContent extends StatelessWidget {
             width: double.infinity,
             padding: const EdgeInsets.all(24),
             decoration: BoxDecoration(
-              color: const Color(0xFFE8EEE8),
+              color: const Color(0xFFE9EEF6),
               borderRadius: BorderRadius.circular(18),
             ),
             child: const Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Icon(Icons.event_busy_outlined, color: green, size: 30),
+                Icon(Icons.event_busy_outlined, color: blue, size: 30),
                 SizedBox(height: 14),
                 Text(
                   'No shared time on this date',
@@ -388,9 +378,9 @@ class PlannerContent extends StatelessWidget {
       width: double.infinity,
       padding: const EdgeInsets.all(21),
       decoration: BoxDecoration(
-        color: first ? const Color(0xFF183B34) : Colors.white,
+        color: first ? const Color(0xFF1F3557) : Colors.white,
         borderRadius: BorderRadius.circular(18),
-        border: first ? null : Border.all(color: const Color(0xFFD9E1DA)),
+        border: first ? null : Border.all(color: const Color(0xFFD8DFE8)),
       ),
       child: DefaultTextStyle.merge(
         style: TextStyle(color: first ? Colors.white : ink),
@@ -403,7 +393,7 @@ class PlannerContent extends StatelessWidget {
                 fontSize: 11,
                 letterSpacing: 1.3,
                 fontWeight: FontWeight.w800,
-                color: first ? const Color(0xFF9BD7C4) : green,
+                color: first ? const Color(0xFFAEC8F2) : blue,
               ),
             ),
             const SizedBox(height: 10),
@@ -419,7 +409,7 @@ class PlannerContent extends StatelessWidget {
               '${window.length.inMinutes} minutes available in $reference',
               style: TextStyle(
                 fontSize: 12,
-                color: first ? const Color(0xFFC4D8CE) : muted,
+                color: first ? const Color(0xFFCDDAEC) : muted,
               ),
             ),
             const SizedBox(height: 18),
@@ -442,7 +432,7 @@ class PlannerContent extends StatelessWidget {
                         style: TextStyle(
                           fontSize: 12,
                           height: 1.4,
-                          color: first ? const Color(0xFFD8E8DD) : muted,
+                          color: first ? const Color(0xFFE1E9F4) : muted,
                         ),
                       ),
                     ),
@@ -455,8 +445,8 @@ class PlannerContent extends StatelessWidget {
               icon: const Icon(Icons.ios_share_outlined, size: 18),
               label: Text('Share $minutes min invite'),
               style: FilledButton.styleFrom(
-                backgroundColor: first ? const Color(0xFFBCE5D3) : green,
-                foregroundColor: first ? const Color(0xFF103A31) : Colors.white,
+                backgroundColor: first ? const Color(0xFFBED3F3) : blue,
+                foregroundColor: first ? const Color(0xFF183558) : Colors.white,
               ),
             ),
           ],

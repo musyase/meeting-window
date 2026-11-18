@@ -10,9 +10,9 @@ from PIL import Image, ImageChops, ImageDraw
 
 ROOT = Path(__file__).resolve().parents[1]
 SIZE = 1024
-BACKGROUND = (24, 59, 52, 255)
-RING = (245, 249, 244, 255)
-OVERLAP = (157, 215, 196, 255)
+BACKGROUND = (31, 53, 87, 255)
+RING = (244, 247, 251, 255)
+OVERLAP = (174, 200, 242, 255)
 
 
 def draw_icon() -> Image.Image:

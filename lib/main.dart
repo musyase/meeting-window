@@ -26,20 +26,20 @@ class MeetingWindowApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         useMaterial3: true,
-        scaffoldBackgroundColor: const Color(0xFFF7F7F2),
+        scaffoldBackgroundColor: const Color(0xFFF3F5F8),
         colorScheme: const ColorScheme.light(
-          primary: Color(0xFF17665B),
+          primary: Color(0xFF31548B),
           onPrimary: Colors.white,
-          primaryContainer: Color(0xFFD5E9E2),
-          onPrimaryContainer: Color(0xFF0B423A),
-          secondary: Color(0xFF93613F),
-          surface: Color(0xFFF7F7F2),
-          onSurface: Color(0xFF1D2A26),
-          outline: Color(0xFF7A8880),
+          primaryContainer: Color(0xFFDCE6F5),
+          onPrimaryContainer: Color(0xFF203E6A),
+          secondary: Color(0xFF6D5B83),
+          surface: Color(0xFFF3F5F8),
+          onSurface: Color(0xFF1D2A3A),
+          outline: Color(0xFF78879B),
         ),
         appBarTheme: const AppBarTheme(
-          backgroundColor: Color(0xFFF7F7F2),
-          foregroundColor: Color(0xFF1D2A26),
+          backgroundColor: Color(0xFFF3F5F8),
+          foregroundColor: Color(0xFF1D2A3A),
         ),
         inputDecorationTheme: InputDecorationTheme(
           border: OutlineInputBorder(borderRadius: BorderRadius.circular(12)),
@@ -191,12 +191,6 @@ class _PlannerPageState extends State<PlannerPage> {
       meetingLength: Duration(minutes: minutes),
     );
     return Scaffold(
-      appBar: AppBar(
-        title: const Text(
-          'Meeting Window',
-          style: TextStyle(fontWeight: FontWeight.w600),
-        ),
-      ),
       body: PlannerContent(
         date: date,
         minutes: minutes,

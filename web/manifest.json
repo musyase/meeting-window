@@ -3,8 +3,8 @@
     "short_name": "Meeting Window",
     "start_url": ".",
     "display": "standalone",
-    "background_color": "#F7F7F2",
-    "theme_color": "#183B34",
+    "background_color": "#F3F5F8",
+    "theme_color": "#1F3557",
     "description": "Find meeting times across local working hours and time zone changes.",
     "prefer_related_applications": false,
     "icons": [
