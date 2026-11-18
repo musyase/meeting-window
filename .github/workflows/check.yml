@@ -23,7 +23,7 @@ jobs:
       - run: flutter pub get
       - run: flutter analyze
       - run: flutter test
-      - run: flutter build web --base-href /meeting-window/ --no-web-resources-cdn
+      - run: flutter build web --web-content-hash --base-href /meeting-window/ --no-web-resources-cdn
       - run: test -f build/web/canvaskit/canvaskit.js
       - run: python3 scripts/check_copy.py README.md
       - uses: actions/configure-pages@v5

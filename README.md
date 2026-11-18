@@ -30,7 +30,7 @@ To run the checks:
 ```bash
 flutter analyze
 flutter test
-flutter build web --base-href /meeting-window/ --no-web-resources-cdn
+flutter build web --web-content-hash --base-href /meeting-window/ --no-web-resources-cdn
 flutter build apk --debug
 python scripts/check_copy.py README.md
 ```
